@@ -1,10 +1,43 @@
 <script lang="ts">
-  // import svelteLogo from './assets/svelte.svg'
-  // import viteLogo from '/vite.svg'
-  // import Counter from './lib/Counter.svelte'
-  // import Icon from '@iconify/svelte'
   import portfolioPhoto from './assets/portfolio-design.jpeg'
-  import DribbleIcon from './assets/dribble-icon.svg';
+  // import Scroller from './lib/Scroller.svelte';
+
+  import { onMount } from 'svelte';
+
+  let scrollers;
+
+  onMount(() => {
+    scrollers = document.querySelectorAll(".scroller");
+    console.log(scrollers);
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      addAnimation();
+    }
+  });
+
+
+function addAnimation() {
+  console.log('Im here inside addAnimation')
+  scrollers.forEach((scroller) => {
+    // add data-animated="true" to every `.scroller` on the page
+    scroller.setAttribute("data-animated", true);
+
+    // console.log(scroller, 'scroller');
+
+    // Make an array from the elements within `.scroller-inner`
+    const scrollerInner = scroller.querySelector(".scroller__inner");
+    const scrollerContent = Array.from(scrollerInner.children);
+
+    // For each item in the array, clone it
+    // add aria-hidden to it
+    // add it into the `.scroller-inner`
+    scrollerContent.forEach((item) => {
+      const duplicatedItem = item.cloneNode(true);
+      duplicatedItem.setAttribute("aria-hidden", true);
+      scrollerInner.appendChild(duplicatedItem);
+    });
+  });
+}
 </script>
 
 <header>
@@ -41,61 +74,22 @@
 
 
     <article class="scroller">
-      <ul class="list-tech">
-        <li class='list-tech__item'>Javascript</li>  
-        <li class='list-tech__item'>Typescript</li>
-        <li class='list-tech__item'>React</li>
-        <li class='list-tech__item'>React Redux</li>
-        <li class='list-tech__item'>NextJs</li>
-        <li class='list-tech__item'>Svelte</li>
-        <li class='list-tech__item'>Figma</li>
-        <li class='list-tech__item'>Framer</li>
-        <li class='list-tech__item'>Adobe InDesign</li>
-        <li class='list-tech__item'>Adobe Illustrator</li>
+      <ul class="tag-list scroller__inner">
+        <li class='tag-list__item'>Javascript</li>  
+        <li class='tag-list__item'>Typescript</li>
+        <li class='tag-list__item'>React</li>
+        <li class='tag-list__item'>React Redux</li>
+        <li class='tag-list__item'>NextJs</li>
+        <li class='tag-list__item'>Svelte</li>
+        <li class='tag-list__item'>CSS</li>
+        <li class='tag-list__item'>CSS in JS</li>
+        <li class='tag-list__item'>UX /UI</li>
+        <li class='tag-list__item'>Figma</li>
+        <li class='tag-list__item'>Framer</li>
+        <li class='tag-list__item'>Adobe InDesign</li>
+        <li class='tag-list__item'>Adobe Illustrator</li>
       </ul>
     </article>
   
   </section>
-
-
-
-  <!-- <div>
-    <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p> -->
 </main>
-
-<style>
-  /* .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  } */
-</style>
