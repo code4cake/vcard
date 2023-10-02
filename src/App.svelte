@@ -42,7 +42,7 @@ function addAnimation() {
 
 
 <main class='card'>
-  <header>
+  <header class='header'>
     <ul class='list'>
       <li class='list__item'>
         <a href="https://dribbble.com/dantesolis" target="_blank">
