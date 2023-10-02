@@ -131,13 +131,15 @@ a:visited {
   }
 
   .header {
-    writing-mode: vertical-lr;
-    text-orientation: mixed;
+    /* writing-mode: vertical-lr;
+    text-orientation: mixed; */
+    /* position: relative; */
   }
 
-  .list {
-    grid-template-columns: 1fr;
-    justify-content: unset;
+  .header > ul {
+    /* position: absolute;
+    transform: rotate(-90deg);
+    transform-origin: top left; */
   }
 
   .photo {
