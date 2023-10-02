@@ -1,15 +1,26 @@
-<script lang='ts'>
-const scrollers = document.querySelectorAll(".scroller");
+<script lang="ts">
+  
+  import { onMount } from 'svelte';
 
-// If a user hasn't opted in for reduced motion, then we add the animation
-if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  addAnimation();
-}
+  let scrollers;
+
+  onMount(() => {
+    scrollers = document.querySelectorAll(".scroller");
+    console.log(scrollers);
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      addAnimation();
+    }
+  });
+
 
 function addAnimation() {
+  console.log('Im here inside addAnimation')
   scrollers.forEach((scroller) => {
-    // add data-animated="true" to every `.scroller` on the page
+
     scroller.setAttribute("data-animated", true);
+
+    // console.log(scroller, 'scroller');
 
     // Make an array from the elements within `.scroller-inner`
     const scrollerInner = scroller.querySelector(".scroller__inner");
