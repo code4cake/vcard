@@ -41,8 +41,8 @@ function addAnimation() {
 </script>
 
 
-<main class='card'>
-  <header class='header'>
+<main class="card">
+  <!-- <header class='header'>
     <ul class='list'>
       <li class='list__item'>
         <a href="https://dribbble.com/dantesolis" target="_blank">
@@ -51,14 +51,13 @@ function addAnimation() {
       </li>
       <li class="list__item"><a href="/">Home</a></li>
     </ul>
-  </header>
+  </header> -->
 
   
   
-  <!-- <div class="container"> -->
 
     <img class="photo" src={portfolioPhoto} alt="vcard profile">
-  <!-- </div> -->
+
 
   
     <section>
