@@ -2,7 +2,9 @@
 
 A Simple vCard. Just trying stuff, like `svelte`.
 
-![vCard](https://raw.githubusercontent.com/code4cake/vcard/main/public/vCard.png)
+![vCard](https://raw.githubusercontent.com/code4cake/vcard/main/public/vcard.png)
+
+![vCard](/repository/public/vcard.png?raw=true "Screenshot")
 
 ## See it Live
 
