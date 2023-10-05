@@ -36,7 +36,7 @@
     .header {
       height: 100%;
       /* writing-mode: vertical-lr;
-    text-orientation: mixed; */
+      text-orientation: mixed; */
       /* position: relative; */
     }
 

@@ -4,11 +4,10 @@
   import portfolioPhoto from "./assets/portfolio-design.jpeg";
   // import Scroller from "./lib/Scroller.svelte";
 
-  let scrollers;
+  let scrollers: NodeListOf<Element>;
 
   onMount(() => {
-    scrollers = document.querySelectorAll(".scroller");
-    console.log(scrollers);
+    scrollers = document.querySelectorAll<HTMLElement>(".scroller");
 
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       addAnimation();
@@ -16,23 +15,16 @@
   });
 
   function addAnimation() {
-    console.log("Im here inside addAnimation");
-    scrollers.forEach((scroller) => {
-      // add data-animated="true" to every `.scroller` on the page
-      scroller.setAttribute("data-animated", true);
+    scrollers.forEach((scroller: HTMLElement) => {
+      scroller.setAttribute("data-animated", "true");
 
-      // console.log(scroller, 'scroller');
-
-      // Make an array from the elements within `.scroller-inner`
-      const scrollerInner = scroller.querySelector(".scroller__inner");
+      const scrollerInner =
+        scroller.querySelector<HTMLElement>(".scroller__inner");
       const scrollerContent = Array.from(scrollerInner.children);
 
-      // For each item in the array, clone it
-      // add aria-hidden to it
-      // add it into the `.scroller-inner`
       scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        duplicatedItem.setAttribute("aria-hidden", true);
+        const duplicatedItem = item.cloneNode(true) as HTMLElement;
+        duplicatedItem.setAttribute("aria-hidden", "true");
         scrollerInner.appendChild(duplicatedItem);
       });
     });
@@ -67,7 +59,6 @@
       </p>
     </div>
 
-    <!-- [ERROR]: Causes problems with overflow -->
     <article class="scroller">
       <ul class="tag-list scroller__inner">
         <li>Javascript</li>
