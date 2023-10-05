@@ -1,8 +1,8 @@
 <script lang="ts">
-  import portfolioPhoto from './assets/portfolio-design.jpeg'
-  // import Scroller from './lib/Scroller.svelte';
+  import { onMount } from "svelte";
 
-  import { onMount } from 'svelte';
+  import portfolioPhoto from "./assets/portfolio-design.jpeg";
+  // import Scroller from "./lib/Scroller.svelte";
 
   let scrollers;
 
@@ -15,87 +15,75 @@
     }
   });
 
+  function addAnimation() {
+    console.log("Im here inside addAnimation");
+    scrollers.forEach((scroller) => {
+      // add data-animated="true" to every `.scroller` on the page
+      scroller.setAttribute("data-animated", true);
 
-function addAnimation() {
-  console.log('Im here inside addAnimation')
-  scrollers.forEach((scroller) => {
-    // add data-animated="true" to every `.scroller` on the page
-    scroller.setAttribute("data-animated", true);
+      // console.log(scroller, 'scroller');
 
-    // console.log(scroller, 'scroller');
+      // Make an array from the elements within `.scroller-inner`
+      const scrollerInner = scroller.querySelector(".scroller__inner");
+      const scrollerContent = Array.from(scrollerInner.children);
 
-    // Make an array from the elements within `.scroller-inner`
-    const scrollerInner = scroller.querySelector(".scroller__inner");
-    const scrollerContent = Array.from(scrollerInner.children);
-
-    // For each item in the array, clone it
-    // add aria-hidden to it
-    // add it into the `.scroller-inner`
-    scrollerContent.forEach((item) => {
-      const duplicatedItem = item.cloneNode(true);
-      duplicatedItem.setAttribute("aria-hidden", true);
-      scrollerInner.appendChild(duplicatedItem);
+      // For each item in the array, clone it
+      // add aria-hidden to it
+      // add it into the `.scroller-inner`
+      scrollerContent.forEach((item) => {
+        const duplicatedItem = item.cloneNode(true);
+        duplicatedItem.setAttribute("aria-hidden", true);
+        scrollerInner.appendChild(duplicatedItem);
+      });
     });
-  });
-}
+  }
 </script>
 
-
 <main class="card">
-  <!-- <header class='header'>
-    <ul class='list'>
-      <li class='list__item'>
-        <a href="https://dribbble.com/dantesolis" target="_blank">
-          <svg class='icon-dribble' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1000 1000"><path d="M0 500c0-90.667 22.334-174.333 67-251 44.667-76.667 105.334-137.333 182-182C325.667 22.333 409.334 0 500 0c90.667 0 174.334 22.333 251 67 76.667 44.667 137.334 105.333 182 182 44.667 76.667 67 160.333 67 251s-22.333 174.333-67 251c-44.666 76.667-105.333 137.333-182 182-76.666 44.667-160.333 67-251 67-90.666 0-174.333-22.333-251-67-76.666-44.667-137.333-105.333-182-182C22.334 674.333 0 590.667 0 500zm83 0c0 104 35 195.667 105 275 32-62.667 82.667-122.333 152-179 69.334-56.667 137-92.333 203-107-10-23.333-19.666-44.333-29-63-114.666 36.667-238.666 55-372 55-26 0-45.333-.333-58-1 0 2.667-.166 6-.5 10-.333 4-.5 7.333-.5 10zm13-103c14.667 1.333 36.334 2 65 2 111.334 0 217-15 317-45-50.666-90-106.333-165-167-225-52.666 26.667-97.833 63.667-135.5 111-37.666 47.333-64.166 99.667-79.5 157zm149 432c75.334 58.667 160.334 88 255 88 49.334 0 98.334-9.333 147-28-13.333-114-39.333-224.333-78-331-61.333 13.333-123.166 47-185.5 101C321.167 713 275 769.667 245 829zM398 97c58.667 60.667 113 136.333 163 227 90.667-38 159-86.333 205-145-77.333-64-166-96-266-96-34 0-68 4.667-102 14zm199 298c10 21.333 21.334 48.333 34 81 49.334-4.667 103-7 161-7 41.334 0 82.334 1 123 3-5.333-90.667-38-171.333-98-242-43.333 64.667-116.666 119.667-220 165zm59 151c34 98.667 57 200 69 304 52.667-34 95.667-77.667 129-131 33.334-53.333 53.334-111 60-173-48.666-3.333-93-5-133-5-36.666 0-78.333 1.667-125 5z"/></svg>
-      </a>  
-      </li>
-      <li class="list__item"><a href="/">Home</a></li>
-    </ul>
-  </header> -->
+  <img class="photo" src={portfolioPhoto} alt="vcard profile" />
 
-  
-  
+  <section>
+    <header>
+      <h1>Dante Solis</h1>
+      <h3>
+        Software Engineer
+        {""}
+        <br />
+        UX/UI Designer
+      </h3>
+    </header>
 
-    <img class="photo" src={portfolioPhoto} alt="vcard profile">
+    <div class="content">
+      <p>
+        I specialize in <span class="highlight">design systems</span> and crisp
+        <span class="highlight">UI interfaces</span>, I turn ideas 💡 into
+        websites and apps that keep users engaged.
+      </p>
+      <p>
+        I combine extensive <span class="highlight">frontend experience</span>
+        with a creative eye to deliver
+        <span class="highlith">visually engaging </span>systems and products,
+        helping startups and businesses define their identity and voice.
+      </p>
+    </div>
 
-
-  
-    <section>
-      <header>
-        <h1>Dante Solis</h1>
-        <h3>
-          Software Engineer 
-          {""} 
-          <br />
-          UX/UI Designer
-        </h3>
-      </header>
-  
-      <div class="content">
-        <p> I specialize in <span class="highlight">design systems</span> and crisp <span class="highlight">UI interfaces</span>,  I turn ideas 💡  into websites and apps that keep users engaged. </p>
-        <p> I combine extensive <span class="highlight">frontend experience</span> with a creative eye to deliver <span class="highlith">visually engaging </span>systems and products, helping startups and businesses define their identity and voice.</p>
-      </div>
-  
-  
-      <!-- [ERROR]: Causes problems with overflow -->
-      <!-- <article class="scroller">
-        <ul class="tag-list scroller__inner">
-          <li>Javascript</li>  
-          <li>Typescript</li>
-          <li>React</li>
-          <li>React Redux</li>
-          <li>NextJs</li>
-          <li>Svelte</li>
-          <li>CSS</li>
-          <li>CSS in JS</li>
-          <li>UX /UI</li>
-          <li>Figma</li>
-          <li>Framer</li>
-          <li>InDesign</li>
-          <li>Illustrator</li>
-        </ul>
-      </article> -->
-    
-    </section>
+    <!-- [ERROR]: Causes problems with overflow -->
+    <article class="scroller">
+      <ul class="tag-list scroller__inner">
+        <li>Javascript</li>
+        <li>Typescript</li>
+        <li>React</li>
+        <li>React Redux</li>
+        <li>NextJs</li>
+        <li>Svelte</li>
+        <li>CSS</li>
+        <li>CSS in JS</li>
+        <li>UX /UI</li>
+        <li>Figma</li>
+        <li>Framer</li>
+        <li>InDesign</li>
+        <li>Illustrator</li>
+      </ul>
+    </article>
+  </section>
 </main>
-

@@ -1,8 +1,4 @@
 :root {
-  /* color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87); */
-  /* background-color: #242424; */
-
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-size: 18px; /* 1rem */
@@ -40,16 +36,16 @@
   --spacing-large: 2rem;
   --spacing-xlarge: 2.5rem;
   --spacing-superSizeMe: 5rem;
+
+  --box-shadow-normal: 3px 3px 0px 0px var(--color-black);
 }
 
 body {
   margin: 0;
-  /* padding: 0 var(--spacing-medium); */
 
   display: grid;
   min-width: 320px;
   min-height: 100vh;
-  /* border: 1px solid red; */
 
   font-size: var(--font-base);
   place-content: center;
@@ -88,23 +84,8 @@ a:visited {
   padding: 0 var(--spacing-normal);
   display: grid;
   grid-template-columns: 1fr;
-  /* border: 1px solid #213547; */
-  /* height: 100vh; */
   padding: var(--spacing-normal);
   max-width: 1000px;
-}
-
-.list {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: var(--spacing-small);
-  /* border: 1px solid salmon; */
-  justify-content: end;
-  align-items: center;
-}
-
-.list__item a {
-  display: flex;
 }
 
 .icon-dribble {
@@ -115,40 +96,21 @@ a:visited {
   max-width: 100%;
   height: auto;
   object-fit: cover;
-  /* border: 1px solid salmon; */
-  box-shadow: 3px 3px 0px 0px var(--color-black);
+  box-shadow: var(--box-shadow-normal);
 }
 
 @media screen and (min-width: 1024px) {
   .card {
     padding: unset;
     display: grid;
-    /* grid-template-columns: minmax(50px, max-content) 3fr 3fr; */
     grid-template-columns: 1fr 1fr;
-    /* height: 100vh; */
-    /* padding: 1rem; */
     border: 1px solid #213547;
-    box-shadow: 8px 6px 0px 0px var(--color-black);
-
-    /* margin: 0 auto; */
+    box-shadow: var(--_box-shadow-normal, 8px 6px 0px 0px var(--color-black));
   }
 
-  .header,
   .photo,
   section {
     height: 100%;
-  }
-
-  .header {
-    /* writing-mode: vertical-lr;
-    text-orientation: mixed; */
-    /* position: relative; */
-  }
-
-  .header > ul {
-    /* position: absolute;
-    transform: rotate(-90deg);
-    transform-origin: top left; */
   }
 
   .photo {
@@ -175,22 +137,20 @@ a:visited {
 
 .tag-list li {
   padding: var(--spacing-xsmall) var(--spacing-small);
-  border-radius: var(--spacing-small);
   background: var(--color-primary-isHovered);
-  box-shadow: 0 var(--spacing-small) var(--spacing-normal) -0.25rem var(--color-primary);
+  box-shadow: var(--box-shadow-normal);
   color: var(--color-white);
 }
 
 .scroller {
   max-width: 400px;
-  outline: 3px solid lime;
 }
 
 .scroller__inner {
-  padding-block: 0.5rem;
+  padding-block: var(--spacing-small);
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--spacing-normal);
 }
 
 .scroller[data-animated="true"] {
@@ -239,43 +199,3 @@ a:visited {
     transform: translate(calc(-50% - 0.5rem));
   }
 }
-
-/* #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-} */
-
-/* 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
