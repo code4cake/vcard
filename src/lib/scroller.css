@@ -26,15 +26,15 @@
   -webkit-mask: linear-gradient(
     90deg,
     transparent,
-    var(--color-white) 20%,
-    var(--color-white) 80%,
+    var(--color-white) 10%,
+    var(--color-white) 90%,
     transparent
   );
   mask: linear-gradient(
     90deg,
     transparent,
-    var(--color-white) 20%,
-    var(--color-white) 80%,
+    var(--color-white) 10%,
+    var(--color-white) 90%,
     transparent
   );
 }

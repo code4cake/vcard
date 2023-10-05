@@ -99,6 +99,11 @@ a:visited {
   box-shadow: var(--box-shadow-normal);
 }
 
+.highlight {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
 @media screen and (min-width: 1024px) {
   .card {
     padding: unset;
@@ -121,11 +126,6 @@ a:visited {
   }
 
   section {
-    padding-inline: var(--spacing-normal);
+    padding-inline: var(--spacing-medium);
   }
-}
-
-.highlight {
-  color: var(--color-primary);
-  font-weight: 500;
 }
