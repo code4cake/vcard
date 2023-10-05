@@ -1,3 +1,4 @@
+<!--  [NOTE]: Currently not used. Would be in v2 -->
 <header class="header">
   <ul class="list">
     <li class="list__item">
@@ -23,7 +24,6 @@
     display: grid;
     grid-template-columns: auto auto;
     grid-gap: var(--spacing-small);
-    /* border: 1px solid salmon; */
     justify-content: end;
     align-items: center;
   }

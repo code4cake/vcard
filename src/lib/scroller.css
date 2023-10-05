@@ -1,0 +1,69 @@
+.tag-list {
+  margin: 0;
+  padding-inline: 0;
+}
+
+.tag-list li {
+  padding: var(--spacing-xsmall) var(--spacing-small);
+  background: var(--color-primary-isHovered);
+  box-shadow: var(--box-shadow-normal);
+  color: var(--color-white);
+}
+
+.scroller {
+  max-width: 400px;
+}
+
+.scroller__inner {
+  padding-block: var(--spacing-small);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-normal);
+}
+
+.scroller[data-animated="true"] {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-white) 20%,
+    var(--color-white) 80%,
+    transparent
+  );
+  mask: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-white) 20%,
+    var(--color-white) 80%,
+    transparent
+  );
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll var(--_animation-duration, 40s)
+    var(--_animation-direction, forwards) linear infinite;
+}
+
+.scroller[data-direction="right"] {
+  --_animation-direction: reverse;
+}
+
+.scroller[data-direction="left"] {
+  --_animation-direction: forwards;
+}
+
+.scroller[data-speed="fast"] {
+  --_animation-duration: 20s;
+}
+
+.scroller[data-speed="slow"] {
+  --_animation-duration: 60s;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
